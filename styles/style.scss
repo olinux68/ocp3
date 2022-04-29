@@ -1,0 +1,475 @@
+
+@import "_normalize.scss";
+@import "_mixins.scss";
+@import "_variable.scss";
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background: #f6f6f6;
+
+}
+
+* a {
+    text-decoration: none;
+    color: white;
+}
+
+.main {
+    margin: 0;
+    padding: 0;
+    @include flexbox-center;
+    flex-direction: column;
+}
+.loadeur{
+    position: fixed;
+    display: grid;
+    place-items: center;
+    background-color: white;
+    height: 100vh;
+    inset: 0;
+    z-index: 1;
+    opacity: 0.9;
+    animation: disappear 1s 3s forwards;
+    transform-origin: top;
+}
+@keyframes disappear{
+    to {
+        transform: scale(0);
+    }
+}
+
+.lds-roller {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 80px;
+    height: 80px;
+    z-index: 2;
+
+}
+
+.lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+}
+
+.lds-roller div:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: black;
+    margin: -4px 0 0 -4px;
+}
+
+
+.lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+}
+
+.lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+}
+
+.lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+}
+
+.lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+}
+
+.lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+}
+
+.lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+}
+
+.lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+}
+
+.lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+}
+
+.lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+}
+
+.lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+}
+
+.lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+}
+
+.lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+}
+
+.lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+}
+
+.lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+}
+
+.lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+}
+
+.lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+}
+
+
+
+
+.header {
+    box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.20);
+    position: relative;
+    @include flexbox-center();
+    height: 80px;
+    width: 100%;
+
+    &__logo {
+        font-family: 'Shrikhand', cursive;
+        margin: 0;
+        color: black;
+    }
+}
+
+.location {
+    @include flexbox-center();
+    background: #f3f3f3;
+    color: #7a7a7a;
+
+    &__city {
+        margin-left: 13px;
+        font-weight: 400;
+    }
+}
+
+.pub {
+    background: #fafafa;
+    width: 100%;
+
+    &__container {
+        width: 100%;
+        padding: 20px;
+        @include flexbox-center();
+        flex-direction: column;
+        padding: 50px 0;
+    }
+
+    &__title {
+        text-align: center;
+        max-width: 250px;
+        margin: 0;
+    }
+
+    &__text {
+        text-align: center;
+    }
+
+    &__button {
+        @include button-style;
+
+        &:hover {
+            @include button-hover;
+        }
+    }
+}
+
+.process__contain {
+    padding: 25px 0;
+    width: 100%;
+    background: white;
+    @include flexbox-center;
+    flex-direction: column;
+}
+
+.process {
+    width: 95%;
+    max-width: 1200px;
+    background-color: white;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        margin: 0;
+    }
+
+    &__step {
+        display: flex;
+        align-items: center;
+        background: #f6f6f6;
+        height: 50px;
+        width: auto;
+        margin: 10px 20px;
+        border-radius: 20px;
+        position: relative;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.16);
+
+        &:hover {
+            @include button-hover;
+            background: lighten(#f7c2f9, 3%);
+        }
+    }
+
+    &__number {
+        background-color: $color-primary;
+        color: white;
+        position: absolute;
+        padding: 3px 8px 3px 8px;
+        border-radius: 500px;
+        transform: translateX(-50%);
+    }
+
+    &__icon {
+        color: #7E7E7E;
+        margin: 0 20px;
+    }
+
+    &__steps {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+
+.restaurants {
+    margin: 0;
+    background: #f6f6f6;
+    padding: 20px;
+    max-width: 1200px;
+    @include flexbox-center;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.restaurant {
+    &__cards {
+        display: grid;
+        grid-template-rows: repeat();
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+        padding: 20px;
+
+    }
+
+    &__card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        width: 100%;
+        border-radius: 20px;
+        transform: scale(1.0);
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+
+        &-new {
+            @include flexbox-center;
+            ;
+            position: absolute;
+            background: #99e2d0;
+            top: 20px;
+            right: 20px;
+
+            & p {
+                color: #1b6150;
+                padding: 10px 20px;
+                margin: 0;
+            }
+        }
+
+        &:hover {
+            transition: .5s;
+            transform: scale(1.02);
+            box-shadow: 0px 0px 10px 2px rgba(147, 86, 220, 0.6);
+        }
+
+        &-image {
+            width: 100%;
+            height: 190px;
+
+            &>img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 20px 20px 0 0;
+            }
+        }
+    }
+
+    &__block {
+        background: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 90px;
+        border-radius: 0 0 20px 20px;
+
+        &-info {
+            color: black;
+            margin-left: 20px;
+
+            &> :first-child {
+                font-weight: 700;
+            }
+        }
+
+        &-hearth {
+            @include flexbox-center;
+            margin-right: 20px;
+            width: 30px;
+        }
+
+        .heart {
+            width: 30px;
+            stroke-width: 30;
+            stroke: black;
+            fill: white;
+            cursor: pointer;
+        }
+
+        .heart-full {
+            position: absolute;
+            fill: url(#text-fill);
+            stroke: none;
+        }
+
+        .heart-empty {
+            width: 50px;
+            position: relative;
+
+            &:hover {
+                opacity: 0;
+                transition: 0.5s;
+            }
+        }
+    }
+}
+
+
+.footer {
+    width: 100%;
+    background-color: #353535;
+    @include flexbox-center;
+
+    &__bloc {
+        display: inline;
+        padding: 0 40px;
+        width: 100%;
+        max-width: 1200px;
+
+        & .logo {
+            font-family: 'Shrikhand', cursive;
+            color: white;
+            font-size: 20px;
+            padding: 15px 0;
+        }
+
+        &-links {
+            display: inline-flex;
+            flex-direction: column;
+            width: auto;
+        }
+
+        &-link {
+            display: inline-flex;
+            align-items: center;
+            flex-direction: row;
+            text-align: center;
+            color: white;
+            height: 30px;
+            cursor: pointer;
+
+            &:hover .footer__bloc-link__title {
+                text-decoration: underline;
+            }
+
+            & i {
+                margin-right: 7px;
+            }
+
+            &__title {
+                font-size: 16px;
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+
+// Animation Loading spinner //
+
+
+@keyframes lds-roller {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+// Responsive //
+
+@media screen and (min-width: 800px) {
+    .restaurant {
+        &__cards {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+    }
+    
+    .process__step {
+        width: 100%;
+    }
+
+    .process__steps {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .footer {
+        &__bloc {
+            margin-bottom: 15px;
+
+            &-links {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                max-width: 900px;
+            }
+        }
+    }
+}
